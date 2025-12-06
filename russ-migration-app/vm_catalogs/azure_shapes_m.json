@@ -1,8 +1,0 @@
-[
-  { "name": "Standard_M8ms",   "vcpus": 8,    "memory": 217.0,  "category": "M-series", "price_per_hour": 1.54 },
-  { "name": "Standard_M16ms",  "vcpus": 16,   "memory": 384.0,  "category": "M-series", "price_per_hour": 3.08 },
-  { "name": "Standard_M32ts",  "vcpus": 32,   "memory": 192.0,  "category": "M-series", "price_per_hour": 2.707 },
-  { "name": "Standard_M32ms",  "vcpus": 32,   "memory": 768.0,  "category": "M-series", "price_per_hour": 4.18 },
-  { "name": "Standard_M64ms",  "vcpus": 64,   "memory": 1536.0, "category": "M-series", "price_per_hour": 8.36 },
-  { "name": "Standard_M128ms", "vcpus": 128,  "memory": 3072.0, "category": "M-series", "price_per_hour": 16.72 }
-]

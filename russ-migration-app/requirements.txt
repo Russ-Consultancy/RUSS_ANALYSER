@@ -1,8 +1,0 @@
-fastapi
-uvicorn
-python-pptx
-openpyxl
-pandas
-beautifulsoup4
-requests
-python-multipart
