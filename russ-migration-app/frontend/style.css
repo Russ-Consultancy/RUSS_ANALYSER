@@ -1,0 +1,237 @@
+/* ------------------------------------------------------------- */
+/* 🌐 General Page Layout */
+/* ------------------------------------------------------------- */
+body {
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    background: #f4f6f9;
+    margin: 0;
+    padding: 0;
+    color: #222;
+}
+
+header {
+    text-align: center;
+    background: linear-gradient(90deg, #032b63, #0277bd);
+    color: white;
+    padding: 20px 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.logo {
+    width: 140px;
+    display: block;
+    margin: 0 auto 10px;
+}
+
+h1 {
+    margin: 10px 0 5px 0;
+    font-size: 1.8rem;
+}
+
+.tagline {
+    font-size: 0.95rem;
+    color: #d1e8ff;
+    margin-top: 5px;
+}
+
+.main-content {
+    padding: 30px 10px;
+    text-align: center;
+}
+
+/* ------------------------------------------------------------- */
+/* 🔄 Loader Styles */
+/* ------------------------------------------------------------- */
+.loading-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
+    text-align: center;
+    color: #032b63;
+    font-size: 1.2rem;
+    animation: fadeIn 0.8s ease;
+}
+
+.loader {
+    width: 64px;
+    height: 64px;
+    border: 6px solid #e0e0e0;
+    border-top-color: #0277bd;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 16px;
+}
+
+.hidden {
+    display: none;
+}
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+
+/* ------------------------------------------------------------- */
+/* 🧾 Results Cards */
+/* ------------------------------------------------------------- */
+.results-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.result-card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+    padding: 24px;
+    margin: 10px;
+    max-width: 360px;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.result-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.15);
+}
+
+.result-card h2 {
+    color: #032b63;
+    margin-bottom: 10px;
+}
+
+.result-card hr {
+    margin: 10px 0;
+    border: 1px solid #e0e0e0;
+}
+
+/* ------------------------------------------------------------- */
+/* 📦 Download Buttons */
+/* ------------------------------------------------------------- */
+.downloads {
+    margin-top: 40px;
+}
+
+.button-row {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 10px 20px;
+    border-radius: 8px;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn.blue {
+    background-color: #032b63;
+}
+
+.btn.blue:hover {
+    background-color: #0277bd;
+}
+
+/* ------------------------------------------------------------- */
+/* ⚙️ Animations */
+/* ------------------------------------------------------------- */
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* ------------------------------------------------------------- */
+/* 🧭 Footer */
+/* ------------------------------------------------------------- */
+footer {
+    text-align: center;
+    padding: 15px;
+    font-size: 0.9rem;
+    color: #555;
+    background-color: #f9f9f9;
+    border-top: 1px solid #ddd;
+}
+/* ------------------------------------------------------------- */
+/* 📤 Upload Page Styling */
+/* ------------------------------------------------------------- */
+
+.upload-card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    margin: 60px auto;
+    max-width: 520px;
+    text-align: left;
+    animation: fadeIn 0.6s ease;
+}
+
+.upload-card h2 {
+    text-align: center;
+    color: #032b63;
+    margin-bottom: 20px;
+}
+
+.upload-card label {
+    display: block;
+    font-weight: 600;
+    margin-top: 15px;
+    color: #032b63;
+}
+
+.upload-card select,
+.upload-card input[type="file"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.upload-card .btn {
+    display: block;
+    width: 100%;
+    margin-top: 25px;
+    padding: 12px;
+    font-size: 1rem;
+}
+
+.status-message {
+    text-align: center;
+    margin-top: 20px;
+    font-weight: 500;
+}
+
+.status-message .success {
+    color: green;
+}
+
+.status-message .error {
+    color: red;
+}
+
+/* Small Loader */
+.loader.small {
+    width: 28px;
+    height: 28px;
+    border-width: 4px;
+    margin: 0 auto 10px;
+}

@@ -1,0 +1,7 @@
+{
+  "db_name": "th",
+  "iops": null,
+  "throughput_mbps": null,
+  "estimated_memory_gb": null,
+  "estimated_vcpu": null
+}
