@@ -1,0 +1,14 @@
+passlib==1.7.4
+bcrypt==4.0.1
+fastapi
+uvicorn
+python-multipart
+pandas
+numpy
+matplotlib
+openpyxl
+python-pptx
+requests
+jinja2
+sqlite-utils
+beautifulsoup4

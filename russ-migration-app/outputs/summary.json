@@ -1,0 +1,17 @@
+[
+  {
+    "Source": "AWR Report",
+    "Cloud": "AZURE",
+    "DB Name": "AT02",
+    "Memory (GB)": 47.71,
+    "Total IOPS": 57.18,
+    "Throughput (MB/s)": 43.09,
+    "Estimated vCPUs": 0.05,
+    "Recommended VM": "Standard_E8s_v5",
+    "VM vCPUs": 8,
+    "VM Memory (GB)": 64,
+    "Category": "E-series",
+    "Hourly Price (USD)": 0.342,
+    "Monthly Cost (USD)": 249.66
+  }
+]

@@ -1,0 +1,12 @@
+[
+  { "name": "Standard_E2s_v5",  "vcpus": 2,   "memory": 16,   "category": "E-series", "price_per_hour": 0.126 },
+  { "name": "Standard_E4s_v5",  "vcpus": 4,   "memory": 32,   "category": "E-series", "price_per_hour": 0.171 },
+  { "name": "Standard_E8s_v5",  "vcpus": 8,   "memory": 64,   "category": "E-series", "price_per_hour": 0.342 },
+  { "name": "Standard_E16s_v5", "vcpus": 16,  "memory": 128,  "category": "E-series", "price_per_hour": 0.684 },
+  { "name": "Standard_E20s_v5", "vcpus": 20,  "memory": 160,  "category": "E-series", "price_per_hour": 0.855 },
+  { "name": "Standard_E32s_v5", "vcpus": 32,  "memory": 256,  "category": "E-series", "price_per_hour": 1.368 },
+  { "name": "Standard_E48s_v5", "vcpus": 48,  "memory": 384,  "category": "E-series", "price_per_hour": 2.052 },
+  { "name": "Standard_E64s_v5", "vcpus": 64,  "memory": 512,  "category": "E-series", "price_per_hour": 2.736 },
+  { "name": "Standard_E96s_v5", "vcpus": 96,  "memory": 672,  "category": "E-series", "price_per_hour": 4.104 },
+  { "name": "Standard_E104is_v5","vcpus": 104,"memory": 672,  "category": "E-series", "price_per_hour": 4.446 }
+]

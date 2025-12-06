@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RUSS Analyser | Main Tool</title>
+  <link rel="stylesheet" href="/frontend/style.css" />
+
+  <style>
+    /* --- Header --- */
+    .header {
+      background: linear-gradient(to right, #003366, #0066a1);
+      color: white;
+      padding: 25px 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      border-bottom: 3px solid #004c7d;
+    }
+    .header h1 { margin: 0; font-size: 26px; font-weight: 700; }
+    .tagline { margin-top: 6px; font-size: 15px; color: #e0ecf5; }
+    .header-right { position: absolute; right: 40px; top: 15px; display: flex; align-items: center; gap: 15px; }
+    .logo { height: 50px; width: auto; }
+
+    .profile-menu { position: relative; }
+    .profile-icon {
+      width: 40px; height: 40px; border-radius: 50%;
+      background-color: #005b7f; color: white;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; font-weight: bold;
+    }
+    .dropdown {
+      position: absolute; top: 50px; right: 0;
+      background: white; color: #003366; border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      display: none; flex-direction: column; width: 180px; z-index: 10;
+      opacity: 0; transform: translateY(-10px);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+    .dropdown a {
+      padding: 10px; text-decoration: none;
+      color: #003366; border-bottom: 1px solid #eee;
+    }
+    .dropdown a:hover { background: #f2f8fb; }
+    .profile-menu.active .dropdown {
+      display: flex; opacity: 1; transform: translateY(0);
+    }
+
+    /* --- Upload Card --- */
+    .main-content { text-align: center; margin-top: 60px; }
+    .upload-card {
+      background: #fff; max-width: 600px; margin: 40px auto; padding: 30px;
+      border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      text-align: left;
+    }
+    .upload-card h2 { color: #003366; margin-bottom: 20px; text-align: center; }
+    label { display: block; margin-top: 12px; font-weight: 600; color: #003366; }
+
+    select, input[type="file"], input[type="number"] {
+      width: 100%; padding: 10px; margin-top: 6px;
+      border: 1px solid #ccc; border-radius: 8px;
+    }
+
+    .checkbox-inline {
+      display: flex; align-items: center; gap: 10px; margin-top: 15px;
+      font-weight: 600; color: #003366;
+    }
+
+    .btn {
+      display: inline-block; padding: 10px 18px; margin-top: 20px;
+      background-color: #006994; color: #fff; border-radius: 8px;
+      font-weight: 600; text-decoration: none; border: none;
+      cursor: pointer; transition: 0.3s ease; width: 100%;
+    }
+    .btn:hover { background-color: #005b7f; }
+
+    .status-message { margin-top: 15px; text-align: center; font-weight: bold; }
+    .success { color: #008000; }
+    .error { color: #d93025; }
+
+    .progress-container {
+      width: 100%; background-color: #f2f8fb;
+      border-radius: 8px; margin-top: 15px; height: 12px; overflow: hidden;
+    }
+    .progress-bar {
+      height: 12px; background-color: #006994;
+      width: 0%; transition: width 0.4s ease-in-out;
+    }
+
+    .manual-input-section {
+      margin-top: 20px; padding: 15px;
+      background: #f9fbfd; border-radius: 10px;
+      border: 1px solid #d0e3f0; display: none;
+    }
+
+    .footer {
+      text-align: center; margin-top: 60px;
+      padding: 10px 0; font-size: 14px; color: #666;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-left">
+      <h1>RUSS Analyser</h1>
+      <p class="tagline">Performance-Driven Migration Assessment Tool</p>
+    </div>
+    <div class="header-right">
+      <div class="profile-menu" id="profileMenu">
+        <div class="profile-icon" id="profileIcon">
+          <img id="user-avatar-img" src="" alt="User"
+               style="display:none;width:40px;height:40px;border-radius:50%;object-fit:cover;" />
+          <span id="user-avatar-letter">U</span>
+        </div>
+        <div class="dropdown">
+          <a href="/frontend/profile.html">Profile Settings</a>
+          <a href="/frontend/admin.html">Admin Options</a>
+          <a href="#" id="logoutBtn">Logout</a>
+        </div>
+      </div>
+      <img src="/frontend/assets/russ_logo-removebg-preview.png"
+           alt="RUSS Consultancy Logo" class="logo" />
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="main-content">
+    <section class="upload-card">
+      <h2>📤 Step 1: Upload or Enter Data</h2>
+      <form id="uploadForm">
+        <label for="cloud">Select Cloud Platform:</label>
+        <select id="cloud" name="cloud" required>
+          <option value="">-- Choose Cloud --</option>
+          <option value="azure">Azure</option>
+          <option value="aws">AWS</option>
+        </select>
+
+        <div class="checkbox-inline">
+          <input type="checkbox" id="folderMode" />
+          <label for="folderMode">Upload Folder Recursively</label>
+        </div>
+
+        <label for="files">Select Files:</label>
+        <input type="file" id="files" name="files" accept=".html,.htm,.zip,.csv,.json,.txt" multiple />
+
+        <div class="checkbox-inline">
+          <input type="checkbox" id="manualToggle" />
+          <label for="manualToggle">Enter Data Manually</label>
+        </div>
+
+        <div id="manualSection" class="manual-input-section">
+          <label for="manual-vcpu">vCPUs</label>
+          <input type="number" id="manual-vcpu" min="1" step="1" placeholder="Enter number of vCPUs" />
+          <label for="manual-memory">Memory (GB)</label>
+          <input type="number" id="manual-memory" min="1" step="0.1" placeholder="Enter memory size (GB)" />
+          <label for="manual-iops">IOPS</label>
+          <input type="number" id="manual-iops" min="1" step="1" placeholder="Enter total IOPS" />
+          <label for="manual-throughput">Throughput (MB/s)</label>
+          <input type="number" id="manual-throughput" min="1" step="0.1" placeholder="Enter throughput in MB/s" />
+        </div>
+
+        <button type="submit" class="btn">Analyze</button>
+      </form>
+
+      <div class="progress-container"><div class="progress-bar" id="progressBar"></div></div>
+      <div id="status-message" class="status-message"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    © 2025 RUSS Consultancy Services | Experience At Work
+  </footer>
+
+  <script src="/frontend/script.js"></script>
+</body>
+</html>
