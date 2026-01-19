@@ -225,6 +225,5 @@ Proprietary — RUSS Consultancy Services, 2025
 ---
 
 ## 👤 Author
-**Brendan Nicholas**  
-Lead Developer & Architect  
+**Brendan Nicholas**   
 RUSS Consultancy Services  
